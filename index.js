@@ -4004,13 +4004,13 @@ const JSONString = `[
             "normal"
         ]
     }
-]`
+]`;
 
 // Endpoint para devolver un JSON
 app.get('/api/data', (req, res) => {
     res.json({
         status: 200,
-        data: JSON.stringify(JSONString)
+        data: JSON.parse(JSONString)
     });
 });
 
