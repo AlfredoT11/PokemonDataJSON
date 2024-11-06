@@ -860,7 +860,7 @@ app.get('/api/data', (req, res) => {
     res.json({
         status: 200,
         data: JSON.parse(JSONString)
-    });
+    }).statusCode(200);
 });
 
 // Iniciar el servidor
