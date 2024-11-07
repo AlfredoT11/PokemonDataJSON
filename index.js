@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 const JSONString = `[
     {
@@ -857,10 +860,12 @@ const JSONString = `[
 
 // Endpoint para devolver un JSON
 app.get('/api/data', (req, res) => {
+    res.append('Content-type', 'application/json');
+    res.status(200);
     res.json({
         status: 200,
         data: JSON.parse(JSONString)
-    }).setHeader('Content-type', 'application/json').statusCode(200);
+    });
 });
 
 // Iniciar el servidor
